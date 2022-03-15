@@ -7,7 +7,6 @@ const pvp = require('mineflayer-pvp').plugin
 var mineflayer = require('mineflayer')
 const deathEvent = require("mineflayer-death-event")
 const ip = process.env['ip']
-const ping = require('minecraft-server-util')
 const {
   Client,
   Intents,
