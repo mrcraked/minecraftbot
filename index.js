@@ -7,10 +7,11 @@ const pvp = require('mineflayer-pvp').plugin
 var mineflayer = require('mineflayer')
 const deathEvent = require("mineflayer-death-event")
 const ip = process.env['ip']
-
+const ping = require('minecraft-server-util')
 const {
   Client,
-  Intents
+  Intents,
+  RichEmbe
 } = require('discord.js')
 // Create Discord intentions, required in v13
 const intents = new Intents(['GUILDS', 'GUILD_MESSAGES'])
@@ -38,6 +39,31 @@ client.on('ready', () => {
     process.exit(1)
   }
 })
+client.on('message', message =>{
+ 
+    let args = message.content.substring(PREFIX.length).split(' ')
+    let ip = process.env['ip']
+    let port = process.env['port']
+    
+    switch(args[0]){
+        case 'mc':
+            ping(ip, parseInt(port), (error, reponse) =>{
+                if(error) throw error
+                const Embed = new RichEmbed()
+                .setTitle('Server Status')
+                .addField('Server IP', reponse.host)
+                .addField('Server Version', reponse.version)
+                .addField('Online Players', reponse.onlinePlayers)
+                .addField('Max Players', reponse.maxPlayers)
+                
+                message.channel.send(Embed)
+            })
+        break
+ 
+    }
+ 
+})
+
 bot.on('chat', (username, message) => {
   if (message === 'halo') {
     bot.chat(`hello` )
