@@ -1,2 +1,2 @@
 # minecraftBOtpengangguran
-A private minecraft bot add discord bot
+A  minecraft bot and discord bot
