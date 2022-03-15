@@ -11,7 +11,7 @@ const ping = require('minecraft-server-util')
 const {
   Client,
   Intents,
-  RichEmbed
+  Embed
 } = require('discord.js')
 // Create Discord intentions, required in v13
 const intents = new Intents(['GUILDS', 'GUILD_MESSAGES'])
