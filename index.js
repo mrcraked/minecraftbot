@@ -6,7 +6,7 @@ const { pathfinder, Movements, goals } = require('mineflayer-pathfinder')
 const pvp = require('mineflayer-pvp').plugin
 var mineflayer = require('mineflayer')
 const deathEvent = require("mineflayer-death-event")
-const ip = process.env['ip'];
+let ip = process.env['ip'];
 const {
   Client,
   Intents,
@@ -20,7 +20,7 @@ const client = new Client({
 
 let channel = process.env['channel']
 var bot = mineflayer.createBot({
-  host: nxylsrv.xyz,
+  host: ip,
   username: process.env['username'],
   version: process.env['ver'],
   port: 45177,
