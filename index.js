@@ -23,7 +23,7 @@ var bot = mineflayer.createBot({
   host: process.env['ip'],
   username: process.env['username'],
   version: process.env['ver'],
-  port:52017,
+  port: process.env['port'],
 })
 bot.on('login', async () => {
     console.log(`bot is on ${ip}`)
@@ -33,7 +33,7 @@ client.on('ready', () => {
   // Find the Discord channel messages will be sent to
   channel = client.channels.cache.get(channel)
   if (!channel) {
-    console.log(`I could not find the channel ${process.env['3']}`)
+    console.log(`I could not find the channel process.env['3']`)
     process.exit(1)
   }
 })
